@@ -366,7 +366,7 @@ def get_isochrone(origin='',
             raise Exception("This is taking too long, so I'm just going to quit.")
 
     for i in range(number_of_angles):
-        iso[i] = geocode_address(data[0][i], access_type, config_path)
+        iso[i] = geocode_address(data[0][i].encode('utf-8'), access_type, config_path)
         time.sleep(0.1)
 
     iso = sort_points(origin, iso, access_type, config_path)
